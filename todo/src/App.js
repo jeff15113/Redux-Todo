@@ -38,7 +38,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.props.tasks);
     return (
       <div className="App">
         <h2>Welcome to your Todo App!</h2>  

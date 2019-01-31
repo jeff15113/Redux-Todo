@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
+import { clearCompleted } from "../actions"
 class TodoForm extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,11 @@ class TodoForm extends Component {
   //   });
   // };
 
+clearCompleted = (e) => {
+  e.preventDefault();
+  this.props.clearCompleted();
+}
+
   render() {
     return (
       <form>
@@ -21,10 +27,10 @@ class TodoForm extends Component {
           name="task"
         />
         <button onClick={e => {this.props.addTodo(e)}}>Add Task</button>
-        <button>Clear Completed</button>
+        <button onClick={e => {this.clearCompleted(e)}}>Clear Completed</button>
       </form>
     );
   }
 }
 
-export default TodoForm;
+export default connect(null,{clearCompleted})(TodoForm);
