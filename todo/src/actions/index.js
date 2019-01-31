@@ -1,5 +1,6 @@
 export const ADD_TODO = "ADD_TODO";
 export const COMPLETE_TODO = "COMPLETE_TODO";
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 
 export const addTodo = todo => {
   return {
@@ -7,6 +8,13 @@ export const addTodo = todo => {
     payload: todo
   };
 };
+
+export const clearCompleted = () => {
+    return {
+        type: CLEAR_COMPLETED,
+        payload: ''
+    };
+}
 
 export const completeTodo = index => {
   return {

@@ -7,7 +7,6 @@ const TodoList = props => {
   return (
     <div>
       {props.taskData.map((todo, index) => (
-        console.log(todo),
         <Todo
           todo={todo.text}
           key={index}

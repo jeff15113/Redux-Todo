@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETE_TODO } from "../actions";
+import { ADD_TODO, COMPLETE_TODO, CLEAR_COMPLETED } from "../actions";
 
 const initialstate = {
   reducertasks: [
@@ -11,12 +11,15 @@ const initialstate = {
 };
 
 export const rootReducer = (state = initialstate, action) => {
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case COMPLETE_TODO:
       return {reducertasks: state.reducertasks.map(task => {
         return task.id === action.payload ? {...task, completed: true}: task
       })}
+
+    case CLEAR_COMPLETED: 
+      return {reducertasks: state.reducertasks.filter(task => {return task.completed === false})}
 
     case ADD_TODO:
       return Object.assign({}, state, {
